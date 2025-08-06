@@ -79,8 +79,32 @@
 
   * **Limited Production Usage:** Jupyter is great for development but not typically used for production. For large-scale production, scripts run via `spark-submit` would be more appropriate. However, for prototyping and testing, Jupyter is a perfect tool.
 
----
+### 9. GitHub for Version Control and Collaboration
+* **Why GitHub?**
+GitHub was chosen for version control and collaboration, providing a platform for team members to work together efficiently. It enables seamless tracking of code changes, reviewing pull requests, and managing issues. GitHub ensures the codebase is always synchronized across different environments, making collaboration easier and more organized.
+
+* **Trade-off:**
+
+Learning Curve for New Users: While GitHub offers powerful features for version control, there is a learning curve for new users, especially those unfamiliar with Git or branching strategies. However, the benefits of collaboration, code tracking, and CI/CD automation outweigh the initial challenges.
+
+### 10. GitHub Actions for CI/CD
+* **Why GitHub Actions?**
+GitHub Actions was integrated to automate the CI/CD pipeline, ensuring that every change to the repository is automatically built, tested, and deployed. It streamlines the process of validating changes, making it easier to catch errors early and ensuring that code is always production-ready.
+
+* **Trade-off:**
+
+Complex Setup: Setting up GitHub Actions for CI/CD requires an understanding of workflows and YAML configuration, which may introduce complexity. However, once set up, it provides a powerful automation tool that greatly reduces manual intervention, speeds up the development process, and ensures code quality.
 
 ### Final Thoughts
 
-Each technical decision made in this project was driven by the need to balance performance, maintainability, scalability, and simplicity. The most significant trade-off was between the complexity of Docker and Spark configurations versus the benefits of scalability and consistency across environments. Despite the setup overhead, Docker and PySpark provided a reliable and robust environment for running this ETL pipeline. The next steps would be to scale the system for larger datasets and implement a more fault-tolerant approach using a cloud-based Spark cluster.
+Each technical decision made in this project was driven by the need to balance performance, maintainability, scalability, and simplicity.The most significant trade-off was managing the complexity of Docker and Spark configurations in exchange for environment consistency and scalability. Despite the initial setup effort, Docker and PySpark offered a dependable and portable environment for building and testing the ETL pipeline.Incorporating Jupyter Notebook allowed for rapid prototyping and interactive data processing during development. GitHub ensured robust version control and team collaboration, while GitHub Actions introduced a lightweight CI/CD layer to automate testing and build validation.
+
+Going forward, the system could be enhanced by:
+
+* **Scaling for larger datasets using cloud-based Spark clusters (e.g., AWS EMR, Azure Synapse).**
+
+* **Strengthening fault tolerance and error recovery.**
+
+* **Expanding CI/CD pipelines to include automated testing and deployment workflows.**
+
+These improvements would further align the project with production-grade data engineering standards.
