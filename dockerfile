@@ -42,4 +42,5 @@ COPY . .
 USER $NB_UID
 
 # Run PySpark ETL
-CMD ["spark-submit", "--jars", "/app/jars/mssql-jdbc-12.10.1.jre11.jar", "etl_pipeline.py"]
+# CMD ["spark-submit", "--jars", "/app/jars/mssql-jdbc-12.10.1.jre11.jar", "etl_pipeline.py"]
+CMD ["start-notebook.sh", "--NotebookApp.token=''"]

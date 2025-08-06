@@ -33,7 +33,7 @@ etl_pipeline_project/
 │   └── AdvancedETL.ipynb      # Jupyter notebook version
 │
 ├── scripts/
-│   └── advanced_etl.py        # PySpark script version (if any)
+│   └── advanced_etl.py        # PySpark script version
 │
 ├── docker-compose.yml
 ├── Dockerfile (optional)
