@@ -1,0 +1,1 @@
+ProductID,OrderID,SaleAmount,OrderDate,Region,CustomerID,Discount,Currency,OrderDateParsed,ProductName,Category,SaleAmountUSD,ErrorReason,RejectedAt
