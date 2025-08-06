@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  etl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: etl-pipeline
+    depends_on:
+      - sqlserver
+    environment:
+      - JDBC_URL=jdbc:sqlserver://sqlserver:1433;databaseName=SalesDB
+      - DB_USER=sa
+      - DB_PASS=qwe123!@#
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
+    volumes:
+      - .:/app
+      - ./jars:/opt/spark/jars
+    networks:
+      - etl_network
+    ports:
+      - "8888:8888"  # Jupyter port
+    command: >
+      jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --notebook-dir=/app
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver-db
+    environment:
+      - SA_PASSWORD=qwe123!@#
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - etl_network
+
+networks:
+  etl_network:
+    driver: bridge
+
+volumes:
+  sqlserver_data:
+
+
+
+   # spark-submit
+   # --jars /opt/spark/jars/mssql-jdbc-12.10.1.jre11.jar
+   # --master local
+   # /app/etl_pipeline.py
